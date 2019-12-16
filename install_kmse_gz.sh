@@ -21,7 +21,7 @@ sleep 5
 
 PrometheusOperator=http://$s/tiller/v2/releases/prometheus/json
 echo $PrometheusOperator
-curl -H "Content-Type:application/json" -XPOST $PrometheusOperator -d '{"chart_url": "https://hub-cn-guangzhou-1.kce.ksyun.com/chartrepo/kmse-system/charts/prometheus-operator-1.0.0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
+curl -H "Content-Type:application/json" -XPOST $PrometheusOperator -d '{"chart_url": "https://hub-cn-guangzhou-1.kce.ksyun.com/chartrepo/kmse-system/charts/prometheus-operator-8.3.3.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
 
 sleep 10
 
