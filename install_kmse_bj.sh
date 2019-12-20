@@ -8,7 +8,7 @@ curl -H "Content-Type:application/json" -XPOST $NginxIngress -d '{"chart_url": "
 sleep 5
 
 Elasticsearch=http://$s/tiller/v2/releases/elasticsearch/json
-echo Elasticsearch
+echo $Elasticsearch
 curl -H "Content-Type:application/json" -XPOST $Elasticsearch -d '{"chart_url": "https://hub.kce.ksyun.com/chartrepo/kmse-system/charts/elasticsearch-7.2.1-0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
 
 sleep 5
@@ -23,7 +23,7 @@ PrometheusOperator=http://$s/tiller/v2/releases/prometheus/json
 echo $PrometheusOperator
 curl -H "Content-Type:application/json" -XPOST $PrometheusOperator -d '{"chart_url": "https://hub.kce.ksyun.com/chartrepo/kmse-system/charts/prometheus-operator-1.0.0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
 
-sleep 10
+sleep 60
 
 KmseConsulProxy=http://$s/tiller/v2/releases/kmse-consul-proxy/json
 echo $KmseConsulProxy
@@ -64,6 +64,12 @@ sleep 5
 KmseGeneratorSpringboot=http://$s/tiller/v2/releases/kmse-generator-springboot-kmse-system/json
 echo $KmseGeneratorSpringboot
 curl -H "Content-Type:application/json" -XPOST $KmseGeneratorSpringboot -d '{"chart_url": "https://hub.kce.ksyun.com/chartrepo/kmse-system/charts/kmse-generator-springboot-1.0.0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
+
+sleep 5
+
+KmseCluster=http://$s/tiller/v2/releases/kmse-ksyun-cluster/json
+echo $KmseCluster
+curl -H "Content-Type:application/json" -XPOST $KmseCluster -d '{"chart_url": "https://hub.kce.ksyun.com/chartrepo/kmse-system/charts/kmse-ksyun-cluster-1.0.0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
 
 sleep 5
 
