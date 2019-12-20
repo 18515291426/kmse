@@ -53,6 +53,10 @@ KmseGeneratorSpringboot=http://$s/tiller/v2/releases/kmse-generator-springboot-k
 echo $KmseGeneratorSpringboot
 curl --request DELETE $KmseGeneratorSpringboot
 
+KmseCluster=http://$s/tiller/v2/releases/kmse-ksyun-cluster/json?purge=true
+echo $KmseCluster
+curl --request DELETE $KmseCluster
+
 KmseInstaller=http://$s/tiller/v2/releases/kmse-installer-kmse-system/json?purge=true
 echo $KmseInstaller
 curl --request DELETE $KmseInstaller
@@ -91,5 +95,8 @@ curl --request DELETE $Prometheus
 
 
 kubectl delete crd --all -n kmse-system
+
+
+echo "***************** 卸载成功 ********************"
 
 
