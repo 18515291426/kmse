@@ -23,7 +23,7 @@ PrometheusOperator=http://$s/tiller/v2/releases/prometheus/json
 echo $PrometheusOperator
 curl -H "Content-Type:application/json" -XPOST $PrometheusOperator -d '{"chart_url": "https://hub-cn-guangzhou-1.kce.ksyun.com/chartrepo/kmse-system/charts/prometheus-operator-8.3.3.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
 
-sleep 10
+sleep 60
 
 KmseConsulProxy=http://$s/tiller/v2/releases/kmse-consul-proxy/json
 echo $KmseConsulProxy
@@ -64,6 +64,12 @@ sleep 5
 KmseGeneratorSpringboot=http://$s/tiller/v2/releases/kmse-generator-springboot-kmse-system/json
 echo $KmseGeneratorSpringboot
 curl -H "Content-Type:application/json" -XPOST $KmseGeneratorSpringboot -d '{"chart_url": "https://hub-cn-guangzhou-1.kce.ksyun.com/chartrepo/kmse-system/charts/kmse-generator-springboot-1.0.0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
+
+sleep 5
+
+KmseCluster=http://$s/tiller/v2/releases/kmse-ksyun-cluster/json
+echo $KmseCluster
+curl -H "Content-Type:application/json" -XPOST $KmseCluster -d '{"chart_url": "https://hub-cn-guangzhou-1.kce.ksyun.com/chartrepo/kmse-system/charts/kmse-ksyun-cluster-1.0.0.tgz","namespace": "kmse-system","insecure_skip_verify":true }'
 
 sleep 5
 
